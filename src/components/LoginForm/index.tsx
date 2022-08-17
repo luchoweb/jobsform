@@ -1,4 +1,4 @@
-import { FormEvent } from "react";
+import { Link } from "react-router-dom";
 import { useForm, SubmitHandler } from "react-hook-form";
 
 type Inputs = {
@@ -11,12 +11,11 @@ const LoginForm = () => {
   const onSubmit: SubmitHandler<Inputs> = data => {
     console.log(data);
   }
-
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <div className="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
+      <div className="d-flex flex-row align-items-center justify-content-center justify-content-md-start">
         <p className="lead fw-normal mb-0 me-3">Sign in with</p>
-        <button type="button" className="btn btn-primary btn-floating mx-1">
+        <button type="button" className="btn btn-danger btn-floating mx-1">
           <i className="fab fa-google"></i>
         </button>
       </div>
@@ -30,19 +29,19 @@ const LoginForm = () => {
         <input
           type="text"
           id="email"
-          className={`form-control form-control-lg ${errors.email ? 'is-invalid' : ''}`}
+          className={`form-control ${errors.email ? 'is-invalid' : ''}`}
           placeholder="Your email"
           {...register(
             "email", {
               required: 'Enter a valid email address',
               pattern: {
-                value: /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,10})+$/,
+                value: /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*$/,
                 message: "Enter a valid email address"
               }
             }
           )}
         />
-        {errors.email && <p className="text-danger m-0">{errors.email.message}</p>}
+        {errors.email && <p className="text-danger m-0"><small>{errors.email.message}</small></p>}
       </div>
 
       <div className="form-outline mb-3">
@@ -50,7 +49,7 @@ const LoginForm = () => {
         <input
           type="password"
           id="password"
-          className={`form-control form-control-lg ${errors.password ? 'is-invalid' : ''}`}
+          className={`form-control ${errors.password ? 'is-invalid' : ''}`}
           placeholder="Your password"
           {...register(
             "password", {
@@ -66,23 +65,22 @@ const LoginForm = () => {
             }
           )}
         />
-        {errors.password && <p className="text-danger m-0">{errors.password.message}</p>}
+        {errors.password && <p className="text-danger m-0"><small>{errors.password.message}</small></p>}
       </div>
 
       <div className="d-flex justify-content-between align-items-center">
         <div className="form-check mb-0">
-          <input className="form-check-input me-2" type="checkbox" value="" id="form2Example3" />
-          <label className="form-check-label" htmlFor="form2Example3">
+          <input className="form-check-input me-2" type="checkbox" id="remember" />
+          <label className="form-check-label" htmlFor="remember">
             Remember me
           </label>
         </div>
-        <a href="#!" className="text-body">Forgot password?</a>
+        <Link to="/reset-psswd" className="text-body">Forgot password?</Link>
       </div>
 
-      <div className="text-center text-lg-start mt-4 pt-2">
+      <div className="text-center text-md-start mt-4 pt-2">
         <button type="submit" className="btn btn-primary btn-lg">Login</button>
-        <p className="small fw-bold mt-4 pt-1 mb-0">Don't have an account? <a href="#!"
-            className="link-danger">Register</a></p>
+        <p className="small fw-bold mt-4 pt-1 mb-0">Don't have an account? <Link to="/register" className="link-danger">Register</Link></p>
       </div>
     </form>
   )
