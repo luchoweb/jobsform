@@ -1,7 +1,7 @@
 import { ReactElement } from "react";
 
-import Header from "../components/common/header";
-import Footer from "../components/common/footer";
+import Header from "../components/common/Header";
+import Footer from "../components/common/Footer";
 
 import "../styles/views/layout.scss";
 

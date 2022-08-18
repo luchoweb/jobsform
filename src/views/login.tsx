@@ -1,9 +1,12 @@
 import "../styles/views/login.scss";
-import LoginForm from "../components/LoginForm";
 
 import LoginImage from "../assets/images/login-image.webp";
 
-const LoginView = () => {
+type Props = {
+  typeForm: JSX.Element
+}
+
+const LoginView = ({ typeForm }: Props) => {
   return (
     <main className="pt-5 pb-5 pt-lg-0 pb-lg-0">
       <section className="vh-100">
@@ -15,7 +18,7 @@ const LoginView = () => {
               </figure>
             </div>
             <div className="col-11 col-md-6 col-lg-5">
-              <LoginForm />
+              { typeForm }
             </div>
           </div>
         </div>

@@ -3,10 +3,11 @@ import { useForm, SubmitHandler } from "react-hook-form";
 
 type Inputs = {
   email: string,
-  password: string
+  password: string,
+  confirmPasswd: string
 };
 
-const LoginForm = () => {
+const RegisterForm = () => {
   const { register, handleSubmit, watch, formState: { errors } } = useForm<Inputs>();
   const onSubmit: SubmitHandler<Inputs> = data => {
     console.log(data);
@@ -45,7 +46,7 @@ const LoginForm = () => {
       </div>
 
       <div className="form-outline mb-3">
-        <label className="form-label" htmlFor="form3Example4">Password</label>
+        <label className="form-label" htmlFor="password">Password</label>
         <input
           type="password"
           id="password"
@@ -68,22 +69,37 @@ const LoginForm = () => {
         {errors.password && <p className="text-danger m-0"><small>{errors.password.message}</small></p>}
       </div>
 
-      <div className="d-flex justify-content-between align-items-center">
-        <div className="form-check mb-0">
-          <input className="form-check-input me-2" type="checkbox" id="remember" />
-          <label className="form-check-label" htmlFor="remember">
-            Remember me
-          </label>
-        </div>
-        <Link to="/reset-psswd" className="text-body">Forgot password?</Link>
+      <div className="form-outline mb-3">
+        <label className="form-label" htmlFor="form3Example4">Confirm password</label>
+        <input
+          type="password"
+          id="confirm-password"
+          className={`form-control ${errors.confirmPasswd ? 'is-invalid' : ''}`}
+          placeholder="Confirm password"
+          {...register(
+            "confirmPasswd", {
+              required: 'Enter a valid password',
+              minLength: {
+                value: 8,
+                message: 'Min 8 characters'
+              },
+              maxLength: {
+                value: 12,
+                message: 'Max 12 characters'
+              },
+              validate: (value) => value === watch('password') || `The password doesn't match`
+            }
+          )}
+        />
+        {errors.confirmPasswd && <p className="text-danger m-0"><small>{errors.confirmPasswd.message}</small></p>}
       </div>
 
       <div className="text-center text-md-start mt-4 pt-2">
-        <button type="submit" className="btn btn-primary btn-lg">Login</button>
-        <p className="small fw-bold mt-4 pt-1 mb-0">Don't have an account? <Link to="/register" className="link-danger">Register</Link></p>
+        <button type="submit" className="btn btn-primary">Register</button>
+        <p className="small fw-bold mt-4 pt-1 mb-0">Have an account? <Link to="/" className="link-danger">Log in</Link></p>
       </div>
     </form>
   )
 }
 
-export default LoginForm;
+export default RegisterForm;
