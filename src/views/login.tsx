@@ -1,5 +1,3 @@
-import Layout from "./layout";
-
 import "../styles/views/login.scss";
 import LoginForm from "../components/LoginForm";
 
@@ -7,7 +5,7 @@ import LoginImage from "../assets/images/login-image.webp";
 
 const LoginView = () => {
   return (
-    <Layout className="pt-5 pb-5 pt-lg-0 pb-lg-0">
+    <main className="pt-5 pb-5 pt-lg-0 pb-lg-0">
       <section className="vh-100">
         <div className="container-fluid h-custom">
           <div className="row d-flex justify-content-center align-items-center h-100">
@@ -22,7 +20,7 @@ const LoginView = () => {
           </div>
         </div>
       </section>
-    </Layout>
+    </main>
   )
 }
 

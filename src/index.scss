@@ -4,8 +4,10 @@
 }
 
 body {
+  color: var(--bs-dark);
   font-family: 'Quicksand', sans-serif;
   font-weight: var(--fw-normal);
+  font-size: 16px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

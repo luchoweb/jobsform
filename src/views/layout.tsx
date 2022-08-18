@@ -1,4 +1,8 @@
 import { ReactElement } from "react";
+
+import Header from "../components/common/header";
+import Footer from "../components/common/footer";
+
 import "../styles/views/layout.scss";
 
 type Props = {
@@ -8,8 +12,10 @@ type Props = {
 
 const Layout = ( { children, className = 'layout' }: Props ) => {
   return (
-    <main className={ className }>
+    <main role="main" className={ className }>
+      <Header />
       { children }
+      <Footer />
     </main>
   )
 }
