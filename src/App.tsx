@@ -4,6 +4,7 @@ import { Routes, Route } from "react-router-dom";
 import LoginView from "./views/login";
 import LoginForm from "./components/LoginForm";
 import RegisterForm from "./components/RegisterForm";
+import ResetPwdForm from "./components/ResetPwdForm";
 
 import NotFoundView from "./views/404";
 
@@ -30,7 +31,7 @@ function App() {
         path="/reset-passwd"
         element={
           <LoginView
-            typeForm={ <LoginForm /> }
+            typeForm={ <ResetPwdForm /> }
           />
         }
       />

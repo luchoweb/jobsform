@@ -15,7 +15,7 @@ const RegisterForm = () => {
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className="d-flex flex-row align-items-center justify-content-center justify-content-md-start">
-        <p className="lead fw-normal mb-0 me-3">Sign in with</p>
+        <p className="lead fw-normal mb-0 me-3">Sign up with</p>
         <button type="button" className="btn btn-danger btn-floating mx-1">
           <i className="fab fa-google"></i>
         </button>
