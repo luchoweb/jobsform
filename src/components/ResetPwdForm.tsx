@@ -41,7 +41,7 @@ const ResetPwdForm = () => {
       </div>
 
       <div className="text-center text-md-start">
-        <p className="small fw-bold mt-1 pt-1 mb-0">Have an account? <Link to="/" className="link-danger">Log in</Link></p>
+        <p className="small fw-bold mt-1 pt-1 mb-0">Do you have an account? <Link to="/" className="link-danger">Log in</Link></p>
       </div>
     </form>
   )
