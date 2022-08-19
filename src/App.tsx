@@ -3,6 +3,7 @@ import { Routes, Route } from "react-router-dom";
 // Views
 import LoginView from "./views/login";
 import NotFoundView from "./views/404";
+import DashboardView from "./views/private/dashboard";
 
 // Forms
 import LoginForm from "./components/LoginForm";
@@ -35,6 +36,10 @@ function App() {
             typeForm={ <ResetPwdForm /> }
           />
         }
+      />
+      <Route
+        path="/dashboard"
+        element={ <DashboardView /> }
       />
       <Route
         path="*"

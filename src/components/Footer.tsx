@@ -1,9 +1,11 @@
-import "../../styles/components/common/footer.scss";
+import "../styles/components/common/footer.scss";
 
 const Footer = () => {
   return (
     <footer>
-      FOOTER
+      <div className="container">
+        FOOTER
+      </div>
     </footer>
   )
 }

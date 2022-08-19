@@ -1,7 +1,7 @@
-import Header from "../components/Header";
-import Footer from "../components/Footer";
+import Header from "../../components/Header";
+import Footer from "../../components/Footer";
 
-import "../styles/views/layout.scss";
+import "../../styles/views/layout.scss";
 
 type Props = {
   children: JSX.Element,
