@@ -1,12 +1,13 @@
 import { Routes, Route } from "react-router-dom";
 
-// Login
+// Views
 import LoginView from "./views/login";
+import NotFoundView from "./views/404";
+
+// Forms
 import LoginForm from "./components/LoginForm";
 import RegisterForm from "./components/RegisterForm";
 import ResetPwdForm from "./components/ResetPwdForm";
-
-import NotFoundView from "./views/404";
 
 function App() {
   return (
