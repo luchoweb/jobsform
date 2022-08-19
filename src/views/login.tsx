@@ -1,5 +1,5 @@
 import { useState } from "react";
-import ErrorAlert from "../components/ErrorAlert";
+import Alert from "../components/Alert";
 
 import "../styles/views/login.scss";
 import LoginImage from "../assets/images/login-image.webp";
@@ -9,12 +9,12 @@ type Props = {
 }
 
 const LoginView = ({ typeForm }: Props) => {
-  const [errorMessage, setErrorMessage] = useState('El correo ya se encuentra registrado.');
+  const [errorMessage, setErrorMessage] = useState(null);
 
   return (
     <main className="login pb-5 pb-lg-0">
       <section className="vh-100">
-        { errorMessage && <ErrorAlert message={ errorMessage } /> }
+        { errorMessage && <Alert color="danger" icon="warning" message={ errorMessage } /> }
         <div className="container-fluid h-custom">
           <div className="row d-flex justify-content-center align-items-center h-100">
             <div className="col-11 col-md-5 col-lg-5 mb-4 mb-lg-0">
