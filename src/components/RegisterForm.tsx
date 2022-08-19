@@ -12,11 +12,12 @@ const RegisterForm = () => {
   const onSubmit: SubmitHandler<Inputs> = data => {
     console.log(data);
   }
+
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form onSubmit={handleSubmit(onSubmit)} className="form-horizontal">
       <div className="d-flex flex-row align-items-center justify-content-center justify-content-md-start">
         <p className="lead fw-normal mb-0 me-3">Sign up with</p>
-        <button type="button" className="btn btn-danger btn-floating mx-1">
+        <button type="button" className="btn btn-primary btn-floating mx-1">
           <i className="fab fa-google"></i>
         </button>
       </div>
@@ -70,7 +71,7 @@ const RegisterForm = () => {
       </div>
 
       <div className="form-outline mb-3">
-        <label className="form-label" htmlFor="form3Example4">Confirm password</label>
+        <label className="form-label" htmlFor="password">Confirm password</label>
         <input
           type="password"
           id="confirm-password"
@@ -78,15 +79,6 @@ const RegisterForm = () => {
           placeholder="Confirm password"
           {...register(
             "confirmPasswd", {
-              required: 'Enter a valid password',
-              minLength: {
-                value: 8,
-                message: 'Min 8 characters'
-              },
-              maxLength: {
-                value: 12,
-                message: 'Max 12 characters'
-              },
               validate: (value) => value === watch('password') || `The password doesn't match`
             }
           )}
@@ -95,8 +87,11 @@ const RegisterForm = () => {
       </div>
 
       <div className="text-center text-md-start mt-4 pt-2">
-        <button type="submit" className="btn btn-primary">Register</button>
-        <p className="small fw-bold mt-4 pt-1 mb-0">Do you have an account? <Link to="/" className="link-danger">Log in</Link></p>
+        <button type="submit" className="btn btn-primary">
+          <i className="fas fa-user-plus"></i>
+          <span className="ms-2">Register</span>
+        </button>
+        <p className="small fw-bold mt-4 pt-1 mb-0">Do you have an account? <Link to="/" className="link-danger">Sign in</Link></p>
       </div>
     </form>
   )

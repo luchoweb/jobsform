@@ -12,7 +12,7 @@ const LoginForm = () => {
     console.log(data);
   }
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form onSubmit={handleSubmit(onSubmit)} className="form-horizontal">
       <div className="d-flex flex-row align-items-center justify-content-center justify-content-md-start">
         <p className="lead fw-normal mb-0 me-3">Sign in with</p>
         <button type="button" className="btn btn-primary btn-floating mx-1">
@@ -45,7 +45,7 @@ const LoginForm = () => {
       </div>
 
       <div className="form-outline mb-3">
-        <label className="form-label" htmlFor="form3Example4">Password</label>
+        <label className="form-label" htmlFor="password">Password</label>
         <input
           type="password"
           id="password"
@@ -79,7 +79,10 @@ const LoginForm = () => {
       </div>
 
       <div className="text-center text-md-start mt-4 pt-2">
-        <button type="submit" className="btn btn-primary">Login</button>
+        <button type="submit" className="btn btn-primary">
+          <span className="me-2">Sign in</span>
+          <i className="fas fa-sign-in"></i>
+        </button>
         <p className="small fw-bold mt-4 pt-1 mb-0">Don't have an account? <Link to="/register" className="link-danger">Register</Link></p>
       </div>
     </form>
