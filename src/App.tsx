@@ -2,9 +2,9 @@ import { Routes, Route } from "react-router-dom";
 
 // Login
 import LoginView from "./views/login";
-import LoginForm from "./components/forms/LoginForm";
-import RegisterForm from "./components/forms/RegisterForm";
-import ResetPwdForm from "./components/forms/ResetPwdForm";
+import LoginForm from "./components/LoginForm";
+import RegisterForm from "./components/RegisterForm";
+import ResetPwdForm from "./components/ResetPwdForm";
 
 import NotFoundView from "./views/404";
 
